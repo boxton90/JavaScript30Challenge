@@ -1,0 +1,5 @@
+# Ignoring node_modules folder and subfolders #
+19\ -\ WebCam Fun/node_modules
+
+# Ignoring package-lock.json #
+package-lock.json
