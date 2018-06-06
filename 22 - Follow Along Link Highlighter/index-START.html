@@ -26,7 +26,27 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    const links = document.querySelectorAll('a');
+    const hightlight = document.createElement('span');
+    hightlight.classList.add('highlight');
+    document.body.appendChild(hightlight);
+
+    links.forEach(link =>{
+      link.addEventListener('mouseenter',hightlightLink);
+    })
+
+    function hightlightLink(){
+      const linkCoords = this.getBoundingClientRect();
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.x + window.scrollX,
+        left: linkCoords.y + window.scrollY
+      }
+      hightlight.style.width = `${linkCoords.width}px`;
+      hightlight.style.height = `${linkCoords.height}px`;
+      hightlight.style.transform = `translate(${coords.top}px,${coords.left}px)`;
+    }
   </script>
 </body>
 </html>
